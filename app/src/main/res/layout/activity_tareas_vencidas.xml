@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Encabezado superior con botón de retorno, título e indicador -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <!-- Botón de retorno -->
+        <ImageButton
+            android:id="@+id/btnVolver"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Regresar" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <!-- Título claro -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tareas Vencidas"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <!-- Indicador del total de tareas pendientes de entrega -->
+            <TextView
+                android:id="@+id/txtTotalTareasVencidas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total vencidas: 0"
+                android:textSize="14sp"
+                android:textColor="#D32F2F"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Marco principal para contener la lista y la vista vacía -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="8dp">
+
+        <!-- Contenedor principal: Lista vertical de tareas atrasadas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTareasVencidas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Vista vacía de estado: Se muestra únicamente cuando no hay tareas vencidas -->
+        <TextView
+            android:id="@+id/txtSinTareasVencidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No tienes tareas vencidas"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#888888"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>
